@@ -76,8 +76,11 @@ public class LibrarySystem {
                 System.out.println("Please input the filename you want to delete:");
                 String input=in.next();
                 CatalogItem item=catalog.getItem(input);
-                catalog.removeItem(item);
-                System.out.println(item.title+" has been removed!");
+                if (item==null){
+                    System.out.println("No such an item!");
+                }else {
+                    catalog.removeItem(item);
+                }
             } else if (cmd.equals("e")) {
                 System.out.println("Please input the filename:");
                 String input=in.next();

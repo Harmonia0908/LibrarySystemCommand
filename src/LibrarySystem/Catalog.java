@@ -8,24 +8,33 @@ public class Catalog implements Iterable{
     private int length=0;
 
     public void addItem(CatalogItem item){
-        items[length]=item;
-        length++;
+        if (length>=MAX_NUMBER){
+            System.out.println("Too much items now!Addition failed!");
+        }else {
+            items[length]=item;
+            length++;
+        }
     }
     public void removeItem(CatalogItem item){
-        int pos=-1;
-        for (int i=0;i<getNumberOfItems();++i){
-            if (items[i].equals(item)){
-                pos=i;
-                break;
-            }
-        }
-        if (pos==-1){
-            System.out.println("Don't have such an Object!");
+        if (length==0){
+            System.out.println("No item now!Delete failed!");
         }else {
-            for (int i=pos+1;i<getNumberOfItems();++i){
-                items[i-1]=items[i];
+            int pos=-1;
+            for (int i=0;i<getNumberOfItems();++i){
+                if (items[i].equals(item)){
+                    pos=i;
+                    break;
+                }
             }
-            length--;
+            if (pos==-1){
+                System.out.println("Don't have such an Object!");
+            }else {
+                for (int i=pos+1;i<getNumberOfItems();++i){
+                    items[i-1]=items[i];
+                }
+                length--;
+                System.out.println("Item deleted!");
+            }
         }
     }
     public CatalogItem getItem(String code){
@@ -37,6 +46,9 @@ public class Catalog implements Iterable{
         return null;
     }
     public CatalogItem getItem(int index){
+        if (index>=getNumberOfItems() || index<0){
+            return null;
+        }
         return items[index];
     }
     public int getNumberOfItems(){
