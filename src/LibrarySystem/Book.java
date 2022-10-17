@@ -3,7 +3,7 @@ package LibrarySystem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Book extends CatalogItem{
+public class Book extends CatalogItem {
     String author;
     int numberOfPages;
 
@@ -37,13 +37,13 @@ public class Book extends CatalogItem{
 
     @Override
     public String toString() {
-        String pattern="yyyy-mm-dd";
-        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
-        String dateString=sdf.format(publishDate);
+        String pattern = "yyyy-mm-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        String dateString = sdf.format(publishDate);
         return "Book_" + code +
                 "_" + title +
                 "_" + dateString +
-                "_"+ author +
+                "_" + author +
                 "_" + numberOfPages;
     }
 }

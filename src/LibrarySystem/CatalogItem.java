@@ -9,6 +9,7 @@ public abstract class CatalogItem {
 
     public CatalogItem() {
     }
+
     public CatalogItem(String code, String title, Date publishDate) {
         this.code = code;
         this.title = title;

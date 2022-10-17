@@ -3,7 +3,7 @@ package LibrarySystem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Recording extends CatalogItem{
+public class Recording extends CatalogItem {
     String performer;
     String format;
 
@@ -37,13 +37,13 @@ public class Recording extends CatalogItem{
 
     @Override
     public String toString() {
-        String pattern="yyyy-mm-dd";
-        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
-        String dateString=sdf.format(publishDate);
+        String pattern = "yyyy-mm-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        String dateString = sdf.format(publishDate);
         return "Recording_" + code +
                 "_" + title +
                 "_" + dateString +
-                "_"+ performer +
-                "_" +format;
+                "_" + performer +
+                "_" + format;
     }
 }
